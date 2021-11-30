@@ -246,7 +246,7 @@ export default {
     & > li {
       position: relative;
       padding: 0 8px;
-      color: var(--editorColor50);
+      color: var(--editorColor);
       font-size: 12px;
       line-height: 35px;
       height: 35px;

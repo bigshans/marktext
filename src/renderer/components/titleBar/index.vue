@@ -264,7 +264,7 @@ export default {
     background: transparent;
     height: var(--titleBarHeight);
     box-sizing: border-box;
-    color: var(--editorColor50);
+    color: var(--editorColor);
     position: fixed;
     left: 0;
     top: 0;
