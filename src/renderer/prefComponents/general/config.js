@@ -1,23 +1,20 @@
+import i18n from '../../i18n'
+
 export const titleBarStyleOptions = [{
-  label: 'Custom',
+  label: i18n.t('preferences.general.titleBarStyle.custom'),
   value: 'custom'
 }, {
-  label: 'Native',
+  label: i18n.t('preferences.general.titleBarStyle.native'),
   value: 'native'
 }]
 
 export const fileSortByOptions = [{
-  label: 'Creation time',
+  label: i18n.t('preferences.general.fileSortBy.created'),
   value: 'created'
 }, {
-  label: 'Modification time',
+  label: i18n.t('preferences.general.fileSortBy.modified'),
   value: 'modified'
 }, {
-  label: 'Title',
+  label: i18n.t('preferences.general.fileSortBy.title'),
   value: 'title'
-}]
-
-export const languageOptions = [{
-  label: 'English',
-  value: 'en'
 }]
