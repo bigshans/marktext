@@ -38,7 +38,7 @@ import { category, searchContent } from './config'
 
 export default {
   data () {
-    this.category = category
+    this.category = category()
     return {
       currentCategory: 'general',
       restaurants: [],
