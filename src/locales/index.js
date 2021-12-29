@@ -1,18 +1,8 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
+import languageList from './language-list'
 
 Vue.use(VueI18n)
-
-const languageList = [
-{
-  name: 'English',
-  id: 'en',
-  message: require('./en.json')
-}, {
-  name: 'Chinese Simplified',
-  id: 'zh',
-  message: require('./zh.json')
-}]
 
 let messages = {}
 let languageOptions = []
@@ -30,7 +20,7 @@ let currentLocale = 'zh' // TODO: Get it from Vue storage
 
 // Create VueI18n instance with options
 const i18n = new VueI18n({
-  locale: currentLocale || DEFAULT_LOCALE, // set locale
+  locale: DEFAULT_LOCALE, // set locale
   fallbackLocale: 'en',
   messages
 })

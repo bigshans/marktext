@@ -181,7 +181,7 @@
         "selectDefaultDirectoryToOpen": "选择默认打开的文件夹",
         "blank": "新建空白文档"
       },
-      "languageForUI": "界面语言"
+      "languageForUI": "界面语言（重启程序或打开新窗口时生效）"
     },
     "editor": {
       "_title": "编辑器",
