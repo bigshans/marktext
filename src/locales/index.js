@@ -16,7 +16,6 @@ for (let i = 0; i < languageList.length; i++) {
 }
 
 const DEFAULT_LOCALE = 'en'
-let currentLocale = 'zh' // TODO: Get it from Vue storage
 
 // Create VueI18n instance with options
 const i18n = new VueI18n({
