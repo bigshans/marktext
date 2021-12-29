@@ -1,6 +1,6 @@
 <template>
   <div class="pref-markdown">
-    <h4>markdown</h4>
+    <h4>Markdown</h4>
     <bool
       :description="$t('preferences.markdown.preferLooseListItem')"
       :bool="preferLooseListItem"
@@ -56,6 +56,7 @@
     ></bool>
     <bool
       :description="$t('preferences.markdown.footnote')"
+      notes="Requires restart."
       :bool="footnote"
       :onChange="value => onSelectChange('footnote', value)"
       more="https://pandoc.org/MANUAL.html#footnotes"
@@ -141,13 +142,5 @@ export default {
 
 <style scoped>
   .pref-markdown {
-    & h4 {
-      text-transform: uppercase;
-      margin: 0;
-      font-weight: 400;
-    }
-    & h5 {
-      font-weight: 400;
-    }
   }
 </style>

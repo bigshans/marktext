@@ -2,12 +2,14 @@
   <div class="pref-spellchecker">
     <h4>{{ $t('preferences.spelling._title') }}</h4>
     <bool
+      notes="Feature is experimental."
       :description="$t('preferences.spelling.spellcheckerEnabled')"
       :bool="spellcheckerEnabled"
       :onChange="handleSpellcheckerEnabled"
     ></bool>
     <separator></separator>
     <bool
+      notes="Requires restart."
       :description="$t('preferences.spelling.spellcheckerIsHunspell')"
       :bool="spellcheckerIsHunspell"
       :disable="!isOsSpellcheckerSupported || !spellcheckerEnabled"
@@ -285,11 +287,6 @@ export default {
 
 <style scoped>
   .pref-spellchecker {
-    & h4 {
-      text-transform: uppercase;
-      margin: 0;
-      font-weight: 400;
-    }
     & div.description {
       margin-top: 10px;
       margin-bottom: 2px;
