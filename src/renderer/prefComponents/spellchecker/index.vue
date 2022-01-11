@@ -1,34 +1,40 @@
 <template>
   <div class="pref-spellchecker">
     <h4>{{ $t('preferences.spelling._title') }}</h4>
-    <bool
-      notes="Feature is experimental."
-      :description="$t('preferences.spelling.spellcheckerEnabled')"
-      :bool="spellcheckerEnabled"
-      :onChange="handleSpellcheckerEnabled"
-    ></bool>
+    <compound>
+      <template #head>
+        <bool
+          :description="$t('preferences.spelling.spellcheckerEnabled')"
+          :bool="spellcheckerEnabled"
+          :onChange="handleSpellcheckerEnabled"
+        ></bool>
+      </template>
+      <template #children>
+        <bool
+          :description="$t('preferences.spelling.spellcheckerIsHunspell')"
+          notes="Requires restart."
+          :bool="spellcheckerIsHunspell"
+          :disable="!isOsSpellcheckerSupported || !spellcheckerEnabled"
+          :onChange="value => onSelectChange('spellcheckerIsHunspell', value)"
+        ></bool>
+        <bool
+          :description="$t('preferences.spelling.spellcheckerNoUnderline')"
+          :bool="spellcheckerNoUnderline"
+          :disable="!spellcheckerEnabled"
+          :onChange="value => onSelectChange('spellcheckerNoUnderline', value)"
+        ></bool>
+        <bool
+          v-show="isOsx && !spellcheckerIsHunspell"
+          :description="$t('preferences.spelling.spellcheckerAutoDetectLanguage')"
+          :bool="spellcheckerAutoDetectLanguage"
+          :disable="!spellcheckerEnabled"
+          :onChange="value => onSelectChange('spellcheckerAutoDetectLanguage', value)"
+        ></bool>
+      </template>
+    </compound>
+
     <separator></separator>
-    <bool
-      notes="Requires restart."
-      :description="$t('preferences.spelling.spellcheckerIsHunspell')"
-      :bool="spellcheckerIsHunspell"
-      :disable="!isOsSpellcheckerSupported || !spellcheckerEnabled"
-      :onChange="value => onSelectChange('spellcheckerIsHunspell', value)"
-    ></bool>
-    <bool
-      :description="$t('preferences.spelling.spellcheckerNoUnderline')"
-      :bool="spellcheckerNoUnderline"
-      :disable="!spellcheckerEnabled"
-      :onChange="value => onSelectChange('spellcheckerNoUnderline', value)"
-    ></bool>
-    <bool
-      v-show="isOsx && !spellcheckerIsHunspell"
-      :description="$t('preferences.spelling.spellcheckerAutoDetectLanguage')"
-      :bool="spellcheckerAutoDetectLanguage"
-      :disable="!spellcheckerEnabled"
-      :onChange="value => onSelectChange('spellcheckerAutoDetectLanguage', value)"
-    ></bool>
-    <separator></separator>
+
     <cur-select
       :description="$t('preferences.spelling.spellcheckerLanguage')"
       :value="spellcheckerLanguage"
@@ -48,7 +54,9 @@
     >
       {{ $t('preferences.spelling.hintWindows') }}
     </div>
+
     <div v-if="isHunspellSelected && spellcheckerEnabled">
+      <h6 class="title">Hunspell settings:</h6>
       <div class="description">{{ $t('preferences.spelling.installDictsActions._title') }}</div>
       <el-table
         :data="availableDictionaries"
@@ -95,6 +103,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import Compound from '../common/compound'
 import CurSelect from '../common/select'
 import Bool from '../common/bool'
 import Separator from '../common/separator'
@@ -106,6 +115,7 @@ import { downloadHunspellDictionary, deleteHunspellDictionary } from '@/spellche
 export default {
   components: {
     Bool,
+    Compound,
     CurSelect,
     Separator
   },
@@ -200,7 +210,7 @@ export default {
         const index = dicts.findIndex(d => d === spellcheckerLanguage)
         if (index === -1 && dicts.length >= 1) {
           // Language is not supported, prefer OS language.
-          var lang = process.env.LANG
+          let lang = process.env.LANG
           lang = lang ? lang.split('.')[0] : null
           if (lang) {
             lang = lang.replace(/_/g, '-')
@@ -292,6 +302,10 @@ export default {
       margin-bottom: 2px;
       color: var(--iconColor);
       font-size: 14px;
+    }
+    & h6.title {
+      font-weight: 400;
+      font-size: 1.1em;
     }
   }
   .el-table, .el-table__expanded-cell {

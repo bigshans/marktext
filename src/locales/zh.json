@@ -1,4 +1,5 @@
 {
+  "toc": "目录",
   "menu": {
     "file": {
       "_title": "文件(&F)",
@@ -155,8 +156,13 @@
     "sidebar": {
       "search": "搜索偏好设置"
     },
+    "titleOfMisc": "其他：",
     "general": {
       "_title": "通用",
+      "titleOfAutoSave": "自动保存:",
+      "titleOfWindow": "窗口：",
+      "titleOfSidebar": "侧边栏：",
+      "titleOfMisc": "其他：",
       "autoSave": "自动保存文档更改",
       "autoSaveDelay": "编辑后自动保存的时间间隔（毫秒）",
       "titleBarStyle": {
@@ -185,6 +191,12 @@
     },
     "editor": {
       "_title": "编辑器",
+      "titleOfTextEditor": "文本编辑器设置：",
+      "titleOfCodeBlock": "代码块设置：",
+      "titleOfWriting": "书写行为设置：",
+      "titleOfFileRepresentation": "文件展示设置：",
+      "maximumWidth": "编辑器最大宽度",
+      "preferredTabWidth": "偏爱使用的 Tab 宽度",
       "fontSize": "文本编辑器字体大小",
       "lineHeight": "文本编辑器行高",
       "editorFontFamily": "文本编辑器字体",
@@ -225,6 +237,8 @@
     },
     "markdown": {
       "_title": "Markdown",
+      "titleOfLists": "列表：",
+      "titleOfDiagram": "图表：",
       "preferLooseListItem": "优先使用松散的列表项",
       "bulletListMarker": "无序列表符号",
       "orderListDelimiter": "有序列表符号",
@@ -334,6 +348,14 @@
         "termsOfService": "服务条款",
         "GDPR": "受到欧盟《通用数据保护法（GDPR）》的约束，该服务在欧洲地区不可用。"
       }
+    },
+    "keyBindings": {
+      "_title": "快捷键绑定",
+      "openKeyBindingFile": "打开 keybindings.json",
+      "word1": "MarkText 使用文件进行快捷键自定义管理。文件为",
+      "word2": "。\n        更多关于如何自定义快捷键的信息，你可以从这篇",
+      "word3": "在线文档",
+      "word4": "获得。所有的改变都需要重启应用完成。"
     }
   },
   "components": {

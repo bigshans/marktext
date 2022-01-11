@@ -42,12 +42,13 @@ export default function (keybindings, userPreference) {
       }
     }, {
       label: i18n.t('menu.edit.copyAsHtml'),
+      accelerator: keybindings.getAccelerator('edit.copy-as-html'),
       click (menuItem, browserWindow) {
         actions.edit(browserWindow, 'copyAsHtml')
       }
     }, {
       label: i18n.t('menu.edit.pasteAsPlainText'),
-      accelerator: keybindings.getAccelerator('edit.copy-as-plaintext'),
+      accelerator: keybindings.getAccelerator('edit.paste-as-plaintext'),
       click (menuItem, browserWindow) {
         actions.edit(browserWindow, 'pasteAsPlainText')
       }

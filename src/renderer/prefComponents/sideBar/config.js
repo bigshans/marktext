@@ -46,6 +46,11 @@ export const category = () => {
     label: 'imageUploader',
     icon: ImageUploaderIcon,
     path: '/preference/imageUploader'
+  }, {
+    name: i18n.t('preferences.keyBindings._title'),
+    label: 'keybindings',
+    icon: ImageUploaderIcon, // TODO: Replace icon
+    path: '/preference/keybindings'
   }]
 }
 
