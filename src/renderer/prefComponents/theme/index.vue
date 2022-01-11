@@ -16,8 +16,8 @@
       :options="autoSwitchThemeOptions()"
       :onChange="value => onSelectChange('autoSwitchTheme', value)"
     ></cur-select>
-    <separator></separator>
-    <section class="import-themes ag-underdevelop">
+    <separator v-show="false"></separator>
+    <section v-show="false" class="import-themes ag-underdevelop">
       <div>
         <span>{{ $t('preferences.theme.openThemesFolderAction._title') }}</span>
         <el-button size="small">{{ $t('preferences.theme.openThemesFolderAction._button') }}</el-button>
@@ -79,9 +79,8 @@ export default {
 </script>
 
 <style>
-  .pref-theme {
-  }
   .offcial-themes {
+    margin-top: 12px;
     & .theme {
       cursor: pointer;
       width: 248px;

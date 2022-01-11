@@ -2,86 +2,118 @@
   <div class="pref-general">
     <h4>{{ $t('preferences.general._title') }}</h4>
     <compound>
-    <template #head>
-    <bool
-      :description="$t('preferences.general.autoSave')"
-      :bool="autoSave"
-      :onChange="value => onSelectChange('autoSave', value)"
-    ></bool>
-    </template>
-    <template #children>
-    <range
-      :description="$t('preferences.general.autoSaveDelay')"
-      :value="autoSaveDelay"
-      :min="1000"
-      :max="10000"
-      unit="ms"
-      :step="100"
-      :onChange="value => onSelectChange('autoSaveDelay', value)"
-    ></range>
-    </template>
+      <template #head>
+        <h6 class="title">Auto Save:</h6>
+      </template>
+      <template #children>
+        <bool
+          :description="$t('preferences.general.autoSave')"
+          :bool="autoSave"
+          :onChange="value => onSelectChange('autoSave', value)"
+        ></bool>
+        <range
+          :description="$t('preferences.general.autoSaveDelay')"
+          :value="autoSaveDelay"
+          :min="1000"
+          :max="10000"
+          unit="ms"
+          :step="100"
+          :onChange="value => onSelectChange('autoSaveDelay', value)"
+        ></range>
+      </template>
     </compound>
-    <cur-select
-      v-if="!isOsx"
-      :description="$t('preferences.general.titleBarStyle._title')"
-      notes="Requires restart."
-      :value="titleBarStyle"
-      :options="titleBarStyleOptions()"
-      :onChange="value => onSelectChange('titleBarStyle', value)"
-    ></cur-select>
-    <separator></separator>
-    <bool
-      :description="$t('preferences.general.openFilesInNewWindow')"
-      :bool="openFilesInNewWindow"
-      :onChange="value => onSelectChange('openFilesInNewWindow', value)"
-    ></bool>
-    <bool
-      :description="$t('preferences.general.openFolderInNewWindow')"
-      :bool="openFolderInNewWindow"
-      :onChange="value => onSelectChange('openFolderInNewWindow', value)"
-    ></bool>
-    <bool
-      :description="$t('preferences.general.hideScrollbar')"
-      :bool="hideScrollbar"
-      :onChange="value => onSelectChange('hideScrollbar', value)"
-    ></bool>
-    <bool
-      :description="$t('preferences.general.wordWrapInToc')"
-      :bool="wordWrapInToc"
-      :onChange="value => onSelectChange('wordWrapInToc', value)"
-    ></bool>
-    <bool
-      :description="$t('preferences.general.useAidou')"
-      :bool="aidou"
-      :onChange="value => onSelectChange('aidou', value)"
-      more="https://github.com/marktext/marktext/blob/develop/docs/FAQ.md#what-is-a-aidou-"
-    ></bool>
-    <separator></separator>
-    <cur-select
-      :description="$t('preferences.general.fileSortBy._title')"
-      :value="fileSortBy"
-      :options="fileSortByOptions()"
-      :onChange="value => onSelectChange('fileSortBy', value)"
-      :disable="true"
-    ></cur-select>
-    <section class="startup-action-ctrl">
-      <div>{{ $t('preferences.general.startUpAction._title') }}</div>
-      <el-radio-group v-model="startUpAction">
-        <!--
-          Hide "lastState" for now (#2064).
-        <el-radio class="ag-underdevelop" label="lastState">Open the last window state</el-radio>
-        -->
-        <el-radio label="folder">{{ $t('preferences.general.startUpAction.folder') }}<span>: {{defaultDirectoryToOpen}}</span></el-radio>
-        <el-button size="small" @click="selectDefaultDirectoryToOpen">{{ $t('preferences.general.startUpAction.selectDefaultDirectoryToOpen') }}</el-button>
-        <el-radio label="blank">{{ $t('preferences.general.startUpAction.blank') }}</el-radio>
-      </el-radio-group>
-    </section>
-    <cur-select
-      :description="$t('preferences.general.languageForUI')"
-      :value="language"
-      :options="languageOptions"
-      :onChange="value => onSelectChange('language', value)"
-    ></cur-select>
+
+    <compound>
+      <template #head>
+        <h6 class="title">Window:</h6>
+      </template>
+      <template #children>
+        <cur-select
+          v-if="!isOsx"
+          :description="$t('preferences.general.titleBarStyle._title')"
+          notes="Requires restart."
+          :value="titleBarStyle"
+          :options="titleBarStyleOptions"
+          :onChange="value => onSelectChange('titleBarStyle', value)"
+        ></cur-select>
+        <bool
+          :description="$t('preferences.general.hideScrollbar')"
+          :bool="hideScrollbar"
+          :onChange="value => onSelectChange('hideScrollbar', value)"
+        ></bool>
+        <bool
+          :description="$t('preferences.general.openFilesInNewWindow')"
+          :bool="openFilesInNewWindow"
+          :onChange="value => onSelectChange('openFilesInNewWindow', value)"
+        ></bool>
+        <bool
+          :description="$t('preferences.general.openFolderInNewWindow')"
+          :bool="openFolderInNewWindow"
+          :onChange="value => onSelectChange('openFolderInNewWindow', value)"
+        ></bool>
+      </template>
+    </compound>
+
+    <compound>
+      <template #head>
+        <h6 class="title">Sidebar:</h6>
+      </template>
+      <template #children>
+        <bool
+          :description="$t('preferences.general.wordWrapInToc')"
+          :bool="wordWrapInToc"
+          :onChange="value => onSelectChange('wordWrapInToc', value)"
+        ></bool>
+
+        <!-- TODO: The description is very bad and the entry isn't used by the editor. -->
+        <cur-select
+          :description="$t('preferences.general.fileSortBy._title')"
+          :value="fileSortBy"
+          :options="fileSortByOptions"
+          :onChange="value => onSelectChange('fileSortBy', value)"
+          :disable="true"
+        ></cur-select>
+      </template>
+    </compound>
+
+    <compound>
+      <template #head>
+        <h6 class="title">{{ $t('preferences.general.startUpAction._title') }}</h6>
+      </template>
+      <template #children>
+        <section class="startup-action-ctrl">
+          <el-radio-group v-model="startUpAction">
+            <!--
+              Hide "lastState" for now (#2064).
+            <el-radio class="ag-underdevelop" label="lastState">Restore last editor session</el-radio>
+            -->
+            <el-radio label="folder">{{ $t('preferences.general.startUpAction.folder') }}<span>: {{defaultDirectoryToOpen}}</span></el-radio>
+            <el-button size="small" @click="selectDefaultDirectoryToOpen">{{ $t('preferences.general.startUpAction.selectDefaultDirectoryToOpen') }}</el-button>
+            <el-radio label="blank">{{ $t('preferences.general.startUpAction.blank') }}</el-radio>
+          </el-radio-group>
+        </section>
+      </template>
+    </compound>
+
+    <compound>
+      <template #head>
+        <h6 class="title">Misc:</h6>
+      </template>
+      <template #children>
+        <cur-select
+          :description="$t('preferences.general.languageForUI')"
+          :value="language"
+          :options="languageOptions"
+          :onChange="value => onSelectChange('language', value)"
+        ></cur-select>
+        <bool
+          :description="$t('preferences.general.useAidou')"
+          :bool="aidou"
+          :onChange="value => onSelectChange('aidou', value)"
+          more="https://github.com/marktext/marktext/blob/develop/docs/FAQ.md#what-is-a-aidou-"
+        ></bool>
+      </template>
+    </compound>
   </div>
 </template>
 
@@ -155,7 +187,6 @@ export default {
     & .startup-action-ctrl {
       font-size: 14px;
       user-select: none;
-      margin: 20px 0;
       color: var(--editorColor);
       & .el-button--small {
         margin-left: 25px;
