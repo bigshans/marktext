@@ -1,4 +1,5 @@
 {
+  "toc": "Table Of Content",
   "menu": {
     "file": {
       "_title": "&File",
@@ -155,8 +156,13 @@
     "sidebar": {
       "search": "Search preferences"
     },
+    "titleOfMisc": "Misc:",
     "general": {
       "_title": "General",
+      "titleOfAutoSave": "Auto Save:",
+      "titleOfWindow": "Window:",
+      "titleOfSidebar": "Sidebar:",
+      "titleOfMisc": "Misc:",
       "autoSave": "Automatically save document changes",
       "autoSaveDelay": "Delay following document edit before automatically saving (milliseconds)",
       "titleBarStyle": {
@@ -185,6 +191,12 @@
     },
     "editor": {
       "_title": "Editor",
+      "titleOfTextEditor": "Text editor settings:",
+      "titleOfCodeBlock": "Code block settings:",
+      "titleOfWriting": "Writing behavior settings:",
+      "titleOfFileRepresentation": "File representation:",
+      "maximumWidth": "Maximum width of text editor",
+      "preferredTabWidth": "Preferred tab width",
       "fontSize": "Font size in text editor",
       "lineHeight": "Line height in text editor",
       "editorFontFamily": "Font for text editor",
@@ -225,6 +237,8 @@
     },
     "markdown": {
       "_title": "Markdown",
+      "titleOfLists": "Lists:",
+      "titleOfDiagram": "Diagram:",
       "preferLooseListItem": "Prefer loose list items",
       "bulletListMarker": "Preferred marker for bullet lists",
       "orderListDelimiter": "Preferred marker for ordered lists",
@@ -334,6 +348,14 @@
         "termsOfService": "Terms of Service",
         "GDPR": "This service cannot be used in Europe due to GDPR issues."
       }
+    },
+    "keyBindings": {
+      "_title": "Key Bindings",
+      "openKeyBindingFile": "Open keybindings.json",
+      "word1": "MarkText shortcuts can be customized by editing a configuration file named ",
+      "word2": ".\n        More information how to use custom key bindings can be found ",
+      "word3": "online",
+      "word4": ".\nAll changes require a restart."
     }
   },
   "components": {

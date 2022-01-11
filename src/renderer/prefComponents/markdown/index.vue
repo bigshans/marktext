@@ -3,7 +3,7 @@
     <h4>Markdown</h4>
     <compound>
       <template #head>
-        <h6 class="title">Lists:</h6>
+        <h6 class="title">{{$t('preferences.markdown.titleOfLists')}}</h6>
       </template>
       <template #children>
         <bool
@@ -37,7 +37,7 @@
 
     <compound>
       <template #head>
-        <h6 class="title">Markdown extensions:</h6>
+        <h6 class="title">{{$t('preferences.markdown.extentions')}}:</h6>
       </template>
       <template #children>
         <cur-select
@@ -64,7 +64,7 @@
 
     <compound>
       <template #head>
-        <h6 class="title">Compatibility:</h6>
+        <h6 class="title">{{$t('preferences.markdown.compatibility')}}:</h6>
       </template>
       <template #children>
         <bool
@@ -82,7 +82,7 @@
 
     <compound>
       <template #head>
-        <h6 class="title">Diagrams:</h6>
+        <h6 class="title">{{$t('preferences.markdown.titleOfDiagram')}}</h6>
       </template>
       <template #children>
         <cur-select
@@ -97,7 +97,7 @@
 
     <compound>
       <template #head>
-        <h6 class="title">Misc:</h6>
+        <h6 class="title">{{$t('preferences.titleOfMisc')}}</h6>
       </template>
       <template #children>
         <cur-select

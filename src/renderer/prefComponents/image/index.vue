@@ -26,7 +26,7 @@
     <compound>
       <template #head>
         <bool
-          description="Prefer relative assets folder"
+          :description="$t('preferences.image.imagePreferRelativeDirectory')"
           more="https://github.com/marktext/marktext/blob/develop/docs/IMAGES.md"
           :bool="imagePreferRelativeDirectory"
           :onChange="value => onSelectChange('imagePreferRelativeDirectory', value)"
@@ -34,7 +34,7 @@
       </template>
       <template #children>
         <text-box
-          description="Relative image folder name"
+          :description="$t('preferences.image.imageRelativeDirectoryName')"
           :input="imageRelativeDirectoryName"
           :regexValidator="/^(?:$|(?![a-zA-Z]:)[^\/\\].*$)/"
           :defaultValue="relativeDirectoryNamePlaceholder"

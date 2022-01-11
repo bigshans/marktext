@@ -3,7 +3,7 @@
     <h4>{{ $t('preferences.editor._title') }}</h4>
     <compound>
       <template #head>
-        <h6 class="title">Text editor settings:</h6>
+        <h6 class="title">{{$t('preferences.editor.titleOfTextEditor')}}</h6>
       </template>
       <template #children>
         <range
@@ -29,7 +29,7 @@
           :onChange="value => onSelectChange('editorFontFamily', value)"
         ></font-text-box>
         <text-box
-          description="Maximum width of text editor"
+          :description="$t('preferences.editor.maximumWidth')"
           notes="Leave empty for theme default, otherwise use number with unit suffix, which is one of 'ch' for characters, 'px' for pixels, or '%' for percentage."
           :input="editorLineWidth"
           :regexValidator="/^(?:$|[0-9]+(?:ch|px|%)$)/"
@@ -40,7 +40,7 @@
 
     <compound>
       <template #head>
-        <h6 class="title">Code block settings:</h6>
+        <h6 class="title">{{$t('preferences.editor.titleOfCodeBlock')}}</h6>
       </template>
       <template #children>
         <range
@@ -75,7 +75,7 @@
 
     <compound>
       <template #head>
-        <h6 class="title">Writing behavior:</h6>
+        <h6 class="title">{{$t('preferences.editor.titleOfWriting')}}</h6>
       </template>
       <template #children>
         <bool
@@ -98,11 +98,11 @@
 
     <compound>
       <template #head>
-        <h6 class="title">File representation:</h6>
+        <h6 class="title">{{$t('preferences.editor.titleOfFileRepresentation')}}</h6>
       </template>
       <template #children>
         <cur-select
-          description="Preferred tab width"
+          :description="$t('preferences.editor.preferredTabWidth')"
           :value="tabSize"
           :options="tabSizeOptions"
           :onChange="value => onSelectChange('tabSize', value)"
@@ -135,7 +135,7 @@
 
     <compound>
       <template #head>
-        <h6 class="title">Misc:</h6>
+        <h6 class="title">{{$t('preferences.titleOfMisc')}}</h6>
       </template>
       <template #children>
         <cur-select

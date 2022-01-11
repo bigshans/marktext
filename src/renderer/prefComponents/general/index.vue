@@ -3,7 +3,7 @@
     <h4>{{ $t('preferences.general._title') }}</h4>
     <compound>
       <template #head>
-        <h6 class="title">Auto Save:</h6>
+        <h6 class="title">{{$t('preferences.general.titleOfAutoSave')}}</h6>
       </template>
       <template #children>
         <bool
@@ -25,7 +25,7 @@
 
     <compound>
       <template #head>
-        <h6 class="title">Window:</h6>
+        <h6 class="title">{{$t('preferences.general.titleOfWindow')}}</h6>
       </template>
       <template #children>
         <cur-select
@@ -56,7 +56,7 @@
 
     <compound>
       <template #head>
-        <h6 class="title">Sidebar:</h6>
+        <h6 class="title">{{$t('preferences.general.titleOfSidebar')}}</h6>
       </template>
       <template #children>
         <bool
@@ -97,7 +97,7 @@
 
     <compound>
       <template #head>
-        <h6 class="title">Misc:</h6>
+        <h6 class="title">{{$t('preferences.titleOfMisc')}}</h6>
       </template>
       <template #children>
         <cur-select
@@ -141,8 +141,8 @@ export default {
     Separator
   },
   data () {
-    this.titleBarStyleOptions = titleBarStyleOptions
-    this.fileSortByOptions = fileSortByOptions
+    this.titleBarStyleOptions = titleBarStyleOptions()
+    this.fileSortByOptions = fileSortByOptions()
     this.languageOptions = languageOptions
     this.isOsx = isOsx
     return {}
