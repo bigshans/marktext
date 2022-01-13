@@ -54,6 +54,7 @@ import { loadingPageMixins } from '@/mixins'
 import { mapState } from 'vuex'
 import bus from '@/bus'
 import { DEFAULT_STYLE } from '@/config'
+import { ipcRenderer } from 'electron'
 import { asyncGetLanguage, DEFAULT_LOCALE } from '../i18n'
 
 export default {
@@ -84,6 +85,9 @@ export default {
       textDirection: state => state.preferences.textDirection
     }),
     ...mapState({
+      zoom: state => state.preferences.zoom
+    }),
+    ...mapState({
       projectTree: state => state.project.projectTree,
       pathname: state => state.editor.currentFile.pathname,
       filename: state => state.editor.currentFile.filename,
@@ -104,6 +108,9 @@ export default {
       if (value !== oldValue) {
         addThemeStyle(value)
       }
+    },
+    zoom: function (zoom) {
+      ipcRenderer.emit('mt::window-zoom', null, zoom)
     }
   },
   created () {
