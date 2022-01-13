@@ -1,5 +1,20 @@
 {
-  "toc": "Table Of Content",
+  "sidebar": {
+    "toc": "Table Of Content",
+    "openFolder": "Open Folder",
+    "showMoreMatch": "Show more matches",
+    "noResult": "No results found.",
+    "noFolderOpen": "No folder open",
+    "searchInFolder": "Search in folder...",
+    "caseSensitive": "Case Sensitive",
+    "selectWholeWord": "Select whole word",
+    "useRegEx": "Use query as RegEx",
+    "saveAll": "Save All",
+    "closeAll": "Close All",
+    "openedFiles": "Opened files",
+    "emptyProject": "Empty project",
+    "createFile": "Create File"
+  },
   "menu": {
     "file": {
       "_title": "&File",

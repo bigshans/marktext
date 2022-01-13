@@ -1,5 +1,20 @@
 {
-  "toc": "目录",
+  "sidebar": {
+    "toc": "目录",
+    "openFolder": "打开文件夹",
+    "showMoreMatch": "显示更多匹配的内容",
+    "noResult": "没有找到结果。",
+    "noFolderOpen": "没有文件夹打开",
+    "searchInFolder": "在文件夹中搜索...",
+    "caseSensitive": "大小写敏感",
+    "selectWholeWord": "选择整个单词",
+    "useRegEx": "使用正则表达式查询",
+    "saveAll": "全部保存",
+    "closeAll": "全部关闭",
+    "openedFiles": "已打开的文件",
+    "emptyProject": "空工程",
+    "createFile": "创建文件"
+  },
   "menu": {
     "file": {
       "_title": "文件(&F)",
