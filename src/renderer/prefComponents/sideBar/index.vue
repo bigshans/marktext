@@ -38,7 +38,8 @@ import { category, searchContent } from './config'
 
 export default {
   data () {
-    this.category = category()
+    this.category = category
+    console.log(this.category)
     return {
       currentCategory: 'general',
       restaurants: [],
