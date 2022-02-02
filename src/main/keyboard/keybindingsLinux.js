@@ -1,6 +1,11 @@
 // Key bindings for Linux.
 
 // NOTE: Avoid `Ctrl+Alt` and `Alt` shortcuts on Linux because Ubuntu based OSs have reserved system shortcuts (see GH#2370).
+//       Binding shortcuts to these modifiers will result in odd behavior on Ubuntu.
+// NOTE: Don't use `Ctrl+Shift+U` because it's used IBus for unicode support.
+// NOTE: We can't determine the character for a dead key and no translation is provided. E.g. Ctrl+` (=Ctrl+Shift+´) on a
+//       none nodeadkeys german keyboard cannot be interpreted. In general don't bind default shortcuts to characters that
+//       can be produced with ^ or ` on any keyboard. --> ^, `, ", ~, ...
 
 export default new Map([
   // MarkText menu on macOS only
@@ -40,7 +45,6 @@ export default new Map([
   ['edit.find-previous', 'Shift+F3'],
   ['edit.replace', 'Ctrl+R'],
   ['edit.find-in-folder', 'Ctrl+Shift+F'],
-  ['edit.aidou', 'Ctrl+/'],
   ['edit.screenshot', ''], // macOS only
 
   // Paragraph menu
@@ -58,11 +62,11 @@ export default new Map([
   ['paragraph.math-formula', 'Ctrl+Alt+M'],
   ['paragraph.html-block', 'Ctrl+Alt+H'],
   ['paragraph.order-list', 'Ctrl+G'],
-  ['paragraph.bullet-list', 'Ctrl+Shift+U'],
+  ['paragraph.bullet-list', 'Ctrl+H'],
   ['paragraph.task-list', 'Ctrl+Shift+X'],
   ['paragraph.loose-list-item', 'Ctrl+Shift+L'],
   ['paragraph.paragraph', 'Ctrl+Shift+0'],
-  ['paragraph.horizontal-line', 'Ctrl+H'],
+  ['paragraph.horizontal-line', 'Ctrl+_'], // Ctrl+Shift+-
   ['paragraph.front-matter', 'Ctrl+Shift+Y'],
 
   // Format menu
@@ -72,7 +76,7 @@ export default new Map([
   ['format.superscript', ''],
   ['format.subscript', ''],
   ['format.highlight', 'Ctrl+Shift+H'],
-  ['format.inline-code', 'Ctrl+`'],
+  ['format.inline-code', 'Ctrl+Y'],
   ['format.inline-math', 'Ctrl+Shift+M'],
   ['format.strike', 'Ctrl+D'],
   ['format.hyperlink', 'Ctrl+L'],
@@ -96,6 +100,7 @@ export default new Map([
   ['view.toggle-tabbar', 'Ctrl+Shift+B'],
   ['view.toggle-dev-tools', 'Ctrl+Alt+I'],
   ['view.dev-reload', 'Ctrl+F5'],
+  ['view.reload-images', 'F5'],
 
   // ======== Not included in application menu ========================
   ['tabs.cycle-forward', 'Ctrl+Tab'],

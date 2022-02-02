@@ -1,7 +1,7 @@
 import path from 'path'
 import { BrowserWindow, ipcMain } from 'electron'
 import { enable as remoteEnable } from '@electron/remote/main'
-import electronLocalshortcut from '@hfelix/electron-localshortcut'
+import { electronLocalshortcut } from '@hfelix/electron-localshortcut'
 import BaseWindow, { WindowLifecycle, WindowType } from './base'
 import { centerWindowOptions } from './utils'
 import { TITLE_BAR_HEIGHT, preferencesWinOptions, isLinux, isOsx } from '../config'
@@ -85,13 +85,12 @@ class SettingWindow extends BaseWindow {
     win.loadURL(this._buildUrlString(this.id, env, preferences))
     win.setSheetOffset(TITLE_BAR_HEIGHT)
 
-    electronLocalshortcut.register(
-      win,
-      keybindings.getAccelerator('view.toggle-dev-tools'),
-      () => {
+    const devToolsAccelerator = keybindings.getAccelerator('view.toggle-dev-tools')
+    if (env.debug && devToolsAccelerator) {
+      electronLocalshortcut.register(win, devToolsAccelerator, () => {
         win.webContents.toggleDevTools()
-      }
-    )
+      })
+    }
     return win
   }
 }

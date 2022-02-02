@@ -43,7 +43,6 @@ MarkText key bindings for Windows. Please see [general key bindings](KEYBINDINGS
 | `edit.find-previous`     | <kbd>Shift</kbd>+<kbd>F3</kbd>                | Continue the search and find the previous match |
 | `edit.replace`           | <kbd>Ctrl</kbd>+<kbd>R</kbd>                  | Replace the information with a replacement      |
 | `edit.find-in-folder`    | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | Find files contain the keyword in opend folder  |
-| `edit.aidou`             | <kbd>Ctrl</kbd>+<kbd>/</kbd>                  | Show Aidou dialog                               |
 
 #### Paragraph menu
 
@@ -58,16 +57,16 @@ MarkText key bindings for Windows. Please see [general key bindings](KEYBINDINGS
 | `paragraph.upgrade-heading` | <kbd>Ctrl</kbd>+<kbd>=</kbd>                  | Upgrade a heading                        |
 | `paragraph.degrade-heading` | <kbd>Ctrl</kbd>+<kbd>-</kbd>                  | Degrade a heading                        |
 | `paragraph.table`           | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> | Insert a table                           |
-| `paragraph.code-fence`      | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd>   | Insert a code block                      |
-| `paragraph.quote-block`     | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Q</kbd>   | Insert a quote block                     |
-| `paragraph.math-formula`    | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd>   | Insert a math block                      |
+| `paragraph.code-fence`      | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> | Insert a code block                      |
+| `paragraph.quote-block`     | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Q</kbd> | Insert a quote block                     |
+| `paragraph.math-formula`    | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd>   | Insert a math block                      |
 | `paragraph.html-block`      | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>H</kbd>   | Insert a HTML block                      |
-| `paragraph.order-list`      | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>O</kbd>   | Insert a ordered list                    |
-| `paragraph.bullet-list`     | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>U</kbd>   | Insert a unordered list                  |
+| `paragraph.order-list`      | <kbd>Ctrl</kbd>+<kbd>G</kbd>                  | Insert a ordered list                    |
+| `paragraph.bullet-list`     | <kbd>Ctrl</kbd>+<kbd>H</kbd>                  | Insert a unordered list                  |
 | `paragraph.task-list`       | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>X</kbd>   | Insert a task list                       |
 | `paragraph.loose-list-item` | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd>   | Convert a list item to a loose list item |
 | `paragraph.paragraph`       | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>0</kbd> | Convert a heading to a paragraph         |
-| `paragraph.horizontal-line` | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>-</kbd>   | Add a horizontal line                    |
+| `paragraph.horizontal-line` | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>U</kbd> | Add a horizontal line                    |
 | `paragraph.front-matter`    | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Y</kbd>   | Insert a YAML frontmatter block          |
 
 #### Format menu
@@ -103,13 +102,14 @@ MarkText key bindings for Windows. Please see [general key bindings](KEYBINDINGS
 | ----------------------- | --------------------------------------------- | ---------------------------------------- |
 | `view.command-palette`  | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> | Toggle command palette                   |
 | `view.source-code-mode` | <kbd>Ctrl</kbd>+<kbd>E</kbd>                  | Switch to source code mode               |
-| `view.typewriter-mode`  | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd>   | Enable typewriter mode                   |
+| `view.typewriter-mode`  | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> | Enable typewriter mode                   |
 | `view.focus-mode`       | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>J</kbd> | Enable focus mode                        |
 | `view.toggle-sidebar`   | <kbd>Ctrl</kbd>+<kbd>J</kbd>                  | Toggle sidebar                           |
 | `view.toggle-tabbar`    | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> | Toggle tabbar                            |
 | `view.toggle-toc` .     | <kbd>Ctrl</kbd>+<kbd>K</kbd>                  | Toggle table of contents                 |
 | `view.toggle-dev-tools` | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd>   | Toggle developer tools (debug mode only) |
 | `view.dev-reload`       | <kbd>Ctrl</kbd>+<kbd>F5</kbd>                 | Reload window (debug mode only)          |
+| `view.reload-images`    | <kbd>F5</kbd>                                 | Reload images                            |
 
 ## Available key bindings
 

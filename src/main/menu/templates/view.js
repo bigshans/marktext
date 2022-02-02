@@ -90,6 +90,14 @@ export default function (keybindings) {
         actions.layout(null, browserWindow, 'rightColumn', 'toc')
       }
     }, {
+      label: 'Reload Images',
+      accelerator: keybindings.getAccelerator('view.reload-images'),
+      click (item, focusedWindow) {
+        if (focusedWindow) {
+          focusedWindow.webContents.send('mt::invalidate-image-cache', {})
+        }
+      }
+    }, {
       type: 'separator'
     }]
   }
@@ -114,5 +122,6 @@ export default function (keybindings) {
       }
     })
   }
+
   return viewMenu
 }

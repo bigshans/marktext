@@ -120,7 +120,7 @@
       "showTabBar": "显示标签栏",
       "toggleToc": "显示/隐藏目录",
       "showDevTools": "显示开发者工具",
-      "reload": "重新加载"
+      "reload": "重载窗口"
     },
     "themes": {
       "_title": "主题(&T)"
@@ -318,6 +318,22 @@
         "modify": "更改",
         "open": "打开文件夹"
       },
+      "folderSetting": {
+        "_title": "全局或相对图片文件夹",
+        "open": "打开...",
+        "showInFolder": "在文件夹中打开"
+      },
+      "imageActions": {
+        "upload": "使用所选的上传者上传上传（须在以下进行配置）",
+        "folder": "复制图片到指定的相对目录下或全局目录下",
+        "path": "保持原始路径"
+      },
+      "uploader": {
+        "_title": "上传者",
+        "noUploader": "现在没有选择上传者。请选择一个上传者并配置它。",
+        "currentUploader": "现在的图片上传者是"
+      },
+      "globalImageFolder": "全局图片文件夹",
       "imagePreferRelativeDirectory": "优先使用相对路径",
       "imageRelativeDirectoryName": "指定相对路径的名称"
     },
@@ -331,7 +347,8 @@
         "linkLabel": "SM.MS",
         "ThankSMMS": "感谢 {0} 提供免费的上传服务。"
       },
-      "GitHub": {
+      "Github": {
+        "warn": "Github 将会在未来版本被移除，请使用 picgo",
         "token": "GitHub 令牌（token）：",
         "tokenNotice": "令牌在 macOS 中以密钥环（Keychain）存储，在 Linux 中通过 Secret Service API / libsecret 存储，在 Windows 中利用可信凭据存储",
         "tokenPlaceholder": "输入令牌",
@@ -352,10 +369,11 @@
     "keyBindings": {
       "_title": "快捷键绑定",
       "openKeyBindingFile": "打开 keybindings.json",
-      "word1": "MarkText 使用文件进行快捷键自定义管理。文件为",
-      "word2": "。\n        更多关于如何自定义快捷键的信息，你可以从这篇",
-      "word3": "在线文档",
-      "word4": "获得。所有的改变都需要重启应用完成。"
+      "online": "在线文档",
+      "text": "自定义 MarkText 快捷键后点击保存按钮应用改变（需要重启）。\n        所有可用的和默认的快捷键绑定都在 ",
+      "save": "保存",
+      "restore": "恢复快捷键",
+      "dump": "转存键盘信息"
     }
   },
   "components": {

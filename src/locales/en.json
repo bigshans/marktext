@@ -48,7 +48,7 @@
       "replace": "Replace",
       "findInFolder": "Find in Folder",
       "aidou": "Aidou",
-      "screenshot": "Take Screenshot",
+      "screenshot": "Screenshot",
       "lineEnding": "Line Ending",
       "crlf": "Carriage return and line feed (CRLF)",
       "lf": "Line feed (LF)"
@@ -120,7 +120,7 @@
       "showTabBar": "Show Tab Bar",
       "toggleToc": "Toggle Table of Contents",
       "showDevTools": "Show Developer Tools",
-      "reload": "Reload"
+      "reload": "Reload Window"
     },
     "themes": {
       "_title": "&Theme"
@@ -318,6 +318,22 @@
         "modify": "Modify",
         "open": "Open Folder"
       },
+      "folderSetting": {
+        "_title": "Global or relative image folder",
+        "open": "Open...",
+        "showInFolder": "Show in Folder"
+      },
+      "imageActions": {
+        "upload": "Upload image to cloud using selected uploader (must be configured below)",
+        "folder": "Copy image to designated relative assets or global local folder",
+        "path": "Keep original location"
+      },
+      "uploader": {
+        "_title": "Uploader",
+        "noUploader": "Currently no uploader is selected. Please select an uploader and config it.",
+        "currentUploader": "The current image uploader is"
+      },
+      "globalImageFolder": "Global image folder",
       "imagePreferRelativeDirectory": "Prefer relative assets folder",
       "imageRelativeDirectoryName": "Relative image folder name"
     },
@@ -332,6 +348,7 @@
         "ThankSMMS": "Thank you {0} for providing free uploading services."
       },
       "GitHub": {
+        "warn": "Github will be removed in a future version, please use picgo",
         "token": "GitHub token:",
         "tokenNotice": "The token is saved by Keychain on macOS, Secret Service API/libsecret on Linux and Credential Vault on Windows",
         "tokenPlaceholder": "Input token",
@@ -352,10 +369,11 @@
     "keyBindings": {
       "_title": "Key Bindings",
       "openKeyBindingFile": "Open keybindings.json",
-      "word1": "MarkText shortcuts can be customized by editing a configuration file named ",
-      "word2": ".\n        More information how to use custom key bindings can be found ",
-      "word3": "online",
-      "word4": ".\nAll changes require a restart."
+      "online": "online",
+      "text": "Customize MarkText shortcuts and click on the save button below to apply all changes (requires a restart).\n        All available and default key binding can be found ",
+      "save": "Save",
+      "restore": "Restore default key bindings",
+      "dump": "Dump keyboard information"
     }
   },
   "components": {

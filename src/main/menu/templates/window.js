@@ -1,4 +1,5 @@
-import { toggleAlwaysOnTop } from '../actions/window'
+import { Menu } from 'electron'
+import { minimizeWindow, toggleAlwaysOnTop } from '../actions/window'
 import { zoomIn, zoomOut } from '../../windows/utils'
 import { isOsx } from '../../config'
 import i18n from '../../i18n'
@@ -10,7 +11,9 @@ export default function (keybindings) {
     submenu: [{
       label: i18n.t('menu.window.minimize'),
       accelerator: keybindings.getAccelerator('window.minimize'),
-      role: 'minimize'
+      click (menuItem, browserWindow) {
+        minimizeWindow(browserWindow)
+      }
     }, {
       id: 'alwaysOnTopMenuItem',
       label: i18n.t('menu.window.alwaysOnTop'),
@@ -49,7 +52,9 @@ export default function (keybindings) {
   if (isOsx) {
     menu.submenu.push({
       label: i18n.t('menu.window.bringAllToFront'),
-      role: 'front'
+      click () {
+        Menu.sendActionToFirstResponder('arrangeInFront:')
+      }
     })
   }
   return menu
