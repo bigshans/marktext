@@ -112,12 +112,6 @@
           :options="languageOptions"
           :onChange="value => onSelectChange('language', value)"
         ></cur-select>
-        <bool
-          :description="$t('preferences.general.useAidou')"
-          :bool="aidou"
-          :onChange="value => onSelectChange('aidou', value)"
-          more="https://github.com/marktext/marktext/blob/develop/docs/FAQ.md#what-is-a-aidou-"
-        ></bool>
       </template>
     </compound>
   </div>
@@ -166,7 +160,6 @@ export default {
       zoom: state => state.preferences.zoom,
       hideScrollbar: state => state.preferences.hideScrollbar,
       wordWrapInToc: state => state.preferences.wordWrapInToc,
-      aidou: state => state.preferences.aidou,
       fileSortBy: state => state.preferences.fileSortBy,
       language: state => state.preferences.language
     }),

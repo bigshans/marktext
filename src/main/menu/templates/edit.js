@@ -2,8 +2,7 @@ import * as actions from '../actions/edit'
 import { isOsx } from '../../config'
 import i18n from '../../i18n'
 
-export default function (keybindings, userPreference) {
-  const { aidou } = userPreference.getAll()
+export default function (keybindings) {
   return {
     label: i18n.t('menu.edit._title'),
     submenu: [{
@@ -23,15 +22,21 @@ export default function (keybindings, userPreference) {
     }, {
       label: i18n.t('menu.edit.cut'),
       accelerator: keybindings.getAccelerator('edit.cut'),
-      role: 'cut'
+      click (menuItem, browserWindow) {
+        actions.nativeCut(browserWindow)
+      }
     }, {
       label: i18n.t('menu.edit.copy'),
       accelerator: keybindings.getAccelerator('edit.copy'),
-      role: 'copy'
+      click (menuItem, browserWindow) {
+        actions.nativeCopy(browserWindow)
+      }
     }, {
       label: i18n.t('menu.edit.paste'),
       accelerator: keybindings.getAccelerator('edit.paste'),
-      role: 'paste'
+      click (menuItem, browserWindow) {
+        actions.nativePaste(browserWindow)
+      }
     }, {
       type: 'separator'
     }, {
@@ -116,14 +121,6 @@ export default function (keybindings, userPreference) {
       }
     }, {
       type: 'separator'
-    }, {
-      label: i18n.t('menu.edit.aidou'),
-      visible: aidou,
-      id: 'aidou',
-      accelerator: keybindings.getAccelerator('edit.aidou'),
-      click (menuItem, browserWindow) {
-        actions.edit(browserWindow, 'aidou')
-      }
     }, {
       label: i18n.t('menu.edit.screenshot'),
       id: 'screenshot',

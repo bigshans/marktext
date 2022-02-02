@@ -1234,6 +1234,12 @@ const actions = {
       }
       webFrame.setZoomFactor(zoomFactor)
     })
+  },
+
+  LISTEN_FOR_RELOAD_IMAGES () {
+    ipcRenderer.on('mt::invalidate-image-cache', (e) => {
+      bus.$emit('invalidate-image-cache')
+    })
   }
 }
 

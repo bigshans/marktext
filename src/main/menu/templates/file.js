@@ -163,7 +163,9 @@ export default function (keybindings, userPreference, recentlyUsedFiles) {
   }, {
     label: i18n.t('menu.file.closeWindow'),
     accelerator: keybindings.getAccelerator('file.close-window'),
-    role: 'close'
+    click (menuItem, browserWindow) {
+      actions.closeWindow(browserWindow)
+    }
   }, {
     type: 'separator',
     visible: !isOsx

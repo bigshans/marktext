@@ -26,7 +26,6 @@
         :text-direction="textDirection"
         :platform="platform"
       ></editor-with-tabs>
-      <aidou></aidou>
       <command-palette></command-palette>
       <about-dialog></about-dialog>
       <export-setting-dialog></export-setting-dialog>
@@ -43,7 +42,6 @@ import Recent from '@/components/recent'
 import EditorWithTabs from '@/components/editorWithTabs'
 import TitleBar from '@/components/titleBar'
 import SideBar from '@/components/sideBar'
-import Aidou from '@/components/aidou/aidou'
 import AboutDialog from '@/components/about'
 import CommandPalette from '@/components/commandPalette'
 import ExportSettingDialog from '@/components/exportSettings'
@@ -60,7 +58,6 @@ import { asyncGetLanguage, DEFAULT_LOCALE } from '../i18n'
 export default {
   name: 'marktext',
   components: {
-    Aidou,
     Recent,
     EditorWithTabs,
     TitleBar,
@@ -164,6 +161,7 @@ export default {
     dispatch('LINTEN_FOR_EXPORT_SUCCESS')
     dispatch('LISTEN_FOR_FILE_CHANGE')
     dispatch('LISTEN_WINDOW_ZOOM')
+    dispatch('LISTEN_FOR_RELOAD_IMAGES')
     // module: notification
     dispatch('LISTEN_FOR_NOTIFICATION')
 
