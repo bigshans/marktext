@@ -1,17 +1,18 @@
 import * as actions from '../actions/edit'
 import { isOsx } from '../../config'
+import i18n from '../../i18n'
 
 export default function (keybindings) {
   return {
-    label: '&Edit',
+    label: i18n.t('menu.edit._title'),
     submenu: [{
-      label: 'Undo',
+      label: i18n.t('menu.edit.undo'),
       accelerator: keybindings.getAccelerator('edit.undo'),
       click: (menuItem, browserWindow) => {
         actions.edit(browserWindow, 'undo')
       }
     }, {
-      label: 'Redo',
+      label: i18n.t('menu.edit.redo'),
       accelerator: keybindings.getAccelerator('edit.redo'),
       click: (menuItem, browserWindow) => {
         actions.edit(browserWindow, 'redo')
@@ -19,19 +20,19 @@ export default function (keybindings) {
     }, {
       type: 'separator'
     }, {
-      label: 'Cut',
+      label: i18n.t('menu.edit.cut'),
       accelerator: keybindings.getAccelerator('edit.cut'),
       click (menuItem, browserWindow) {
         actions.nativeCut(browserWindow)
       }
     }, {
-      label: 'Copy',
+      label: i18n.t('menu.edit.copy'),
       accelerator: keybindings.getAccelerator('edit.copy'),
       click (menuItem, browserWindow) {
         actions.nativeCopy(browserWindow)
       }
     }, {
-      label: 'Paste',
+      label: i18n.t('menu.edit.paste'),
       accelerator: keybindings.getAccelerator('edit.paste'),
       click (menuItem, browserWindow) {
         actions.nativePaste(browserWindow)
@@ -39,19 +40,19 @@ export default function (keybindings) {
     }, {
       type: 'separator'
     }, {
-      label: 'Copy as Markdown',
+      label: i18n.t('menu.edit.copyAsMarkdown'),
       accelerator: keybindings.getAccelerator('edit.copy-as-markdown'),
       click (menuItem, browserWindow) {
         actions.edit(browserWindow, 'copyAsMarkdown')
       }
     }, {
-      label: 'Copy as HTML',
+      label: i18n.t('menu.edit.copyAsHtml'),
       accelerator: keybindings.getAccelerator('edit.copy-as-html'),
       click (menuItem, browserWindow) {
         actions.edit(browserWindow, 'copyAsHtml')
       }
     }, {
-      label: 'Paste as Plain Text',
+      label: i18n.t('menu.edit.pasteAsPlainText'),
       accelerator: keybindings.getAccelerator('edit.paste-as-plaintext'),
       click (menuItem, browserWindow) {
         actions.edit(browserWindow, 'pasteAsPlainText')
@@ -59,7 +60,7 @@ export default function (keybindings) {
     }, {
       type: 'separator'
     }, {
-      label: 'Select All',
+      label: i18n.t('menu.edit.selectAll'),
       accelerator: keybindings.getAccelerator('edit.select-all'),
       click (menuItem, browserWindow) {
         actions.edit(browserWindow, 'selectAll')
@@ -67,19 +68,19 @@ export default function (keybindings) {
     }, {
       type: 'separator'
     }, {
-      label: 'Duplicate',
+      label: i18n.t('menu.edit.duplicate'),
       accelerator: keybindings.getAccelerator('edit.duplicate'),
       click (menuItem, browserWindow) {
         actions.edit(browserWindow, 'duplicate')
       }
     }, {
-      label: 'Create Paragraph',
+      label: i18n.t('menu.edit.createParagraph'),
       accelerator: keybindings.getAccelerator('edit.create-paragraph'),
       click (menuItem, browserWindow) {
         actions.edit(browserWindow, 'createParagraph')
       }
     }, {
-      label: 'Delete Paragraph',
+      label: i18n.t('menu.edit.deleteParagraph'),
       accelerator: keybindings.getAccelerator('edit.delete-paragraph'),
       click (menuItem, browserWindow) {
         actions.edit(browserWindow, 'deleteParagraph')
@@ -87,25 +88,25 @@ export default function (keybindings) {
     }, {
       type: 'separator'
     }, {
-      label: 'Find',
+      label: i18n.t('menu.edit.find'),
       accelerator: keybindings.getAccelerator('edit.find'),
       click (menuItem, browserWindow) {
         actions.edit(browserWindow, 'find')
       }
     }, {
-      label: 'Find Next',
+      label: i18n.t('menu.edit.findNext'),
       accelerator: keybindings.getAccelerator('edit.find-next'),
       click (menuItem, browserWindow) {
         actions.edit(browserWindow, 'findNext')
       }
     }, {
-      label: 'Find Previous',
+      label: i18n.t('menu.edit.findPrev'),
       accelerator: keybindings.getAccelerator('edit.find-previous'),
       click (menuItem, browserWindow) {
         actions.edit(browserWindow, 'findPrev')
       }
     }, {
-      label: 'Replace',
+      label: i18n.t('menu.edit.replace'),
       accelerator: keybindings.getAccelerator('edit.replace'),
       click (menuItem, browserWindow) {
         actions.edit(browserWindow, 'replace')
@@ -113,7 +114,7 @@ export default function (keybindings) {
     }, {
       type: 'separator'
     }, {
-      label: 'Find in Folder',
+      label: i18n.t('menu.edit.findInFolder'),
       accelerator: keybindings.getAccelerator('edit.find-in-folder'),
       click (menuItem, browserWindow) {
         actions.edit(browserWindow, 'findInFolder')
@@ -121,7 +122,7 @@ export default function (keybindings) {
     }, {
       type: 'separator'
     }, {
-      label: 'Screenshot',
+      label: i18n.t('menu.edit.screenshot'),
       id: 'screenshot',
       visible: isOsx,
       accelerator: keybindings.getAccelerator('edit.screenshot'),
@@ -132,17 +133,17 @@ export default function (keybindings) {
       type: 'separator'
     }, {
       // TODO: Remove this menu entry and add it to the command palette (#1408).
-      label: 'Line Ending',
+      label: i18n.t('menu.edit.lineEnding'),
       submenu: [{
         id: 'crlfLineEndingMenuEntry',
-        label: 'Carriage return and line feed (CRLF)',
+        label: i18n.t('menu.edit.crlf'),
         type: 'radio',
         click (menuItem, browserWindow) {
           actions.lineEnding(browserWindow, 'crlf')
         }
       }, {
         id: 'lfLineEndingMenuEntry',
-        label: 'Line feed (LF)',
+        label: i18n.t('menu.edit.lf'),
         type: 'radio',
         click (menuItem, browserWindow) {
           actions.lineEnding(browserWindow, 'lf')

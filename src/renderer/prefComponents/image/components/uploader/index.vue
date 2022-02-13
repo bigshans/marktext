@@ -1,11 +1,10 @@
 <template>
   <div class="pref-image-uploader">
-    <h5>Uploader</h5>
+    <h5>{{$t('preferences.image.uploader._title')}}</h5>
     <section class="current-uploader">
-      <div v-if="isValidUploaderService(currentUploader)">The current image uploader is
+      <div v-if="isValidUploaderService(currentUploader)">{{$t('preferences.image.uploader.currentUploader')}}
         {{ getServiceNameById(currentUploader) }}.</div>
-      <span v-else>Currently no uploader is selected. Please select an uploader and config
-        it.</span>
+      <span v-else>{{$t('preferences.image.uploader.noUploader')}}</span>
     </section>
     <section class="configration">
       <cur-select :value="currentUploader" :options="uploaderOptions"
@@ -18,29 +17,29 @@
         </div>
       </div>
       <div class="github" v-if="currentUploader === 'github'">
-        <div class="warning">Github will be removed in a future version, please use picgo</div>
+        <div class="warning">{{$t('preferences.imageUploader.Github.warn')}}</div>
         <div class="form-group">
           <div class="label">
-            GitHub token:
+            {{$t('preferences.imageUploader.Github.token')}}
             <el-tooltip class="item" effect="dark"
-              content="The token is saved by Keychain on macOS, Secret Service API/libsecret on Linux and Credential Vault on Windows"
+              :content="$t('preferences.imageUploader.Github.tokenNotice')"
               placement="top-start">
               <i class="el-icon-info"></i>
             </el-tooltip>
           </div>
-          <el-input v-model="githubToken" placeholder="Input token" size="mini"></el-input>
+          <el-input v-model="githubToken" :placeholder="$t('preferences.imageUploader.Github.tokenPlaceholder')" size="mini"></el-input>
         </div>
         <div class="form-group">
-          <div class="label">Owner name:</div>
-          <el-input v-model="github.owner" placeholder="owner" size="mini"></el-input>
+          <div class="label">{{$t('preferences.imageUploader.Github.owner')}}</div>
+          <el-input v-model="github.owner" :placeholder="$t('preferences.imageUploader.Github.ownerPlaceholder')" size="mini"></el-input>
         </div>
         <div class="form-group">
-          <div class="label">Repo name:</div>
-          <el-input v-model="github.repo" placeholder="repo" size="mini"></el-input>
+          <div class="label">{{$t('preferences.imageUploader.Github.repo')}}</div>
+          <el-input v-model="github.repo" :placeholder="$t('preferences.imageUploader.Github.repoPlaceholder')" size="mini"></el-input>
         </div>
         <div class="form-group">
-          <div class="label">Branch name (optional):</div>
-          <el-input v-model="github.branch" placeholder="branch" size="mini"></el-input>
+          <div class="label">{{$t('preferences.imageUploader.Github.branch')}}</div>
+          <el-input v-model="github.branch" :placeholder="$t('preferences.imageUploader.Github.branchPlaceholder')" size="mini"></el-input>
         </div>
         <legal-notices-checkbox class="github"
           :class="[{ 'error': legalNoticesErrorStates.github }]"

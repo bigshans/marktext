@@ -46,13 +46,13 @@
         >
           <div slot="content">
             <div class="title-item">
-              <span class="front">Words:</span><span class="text">{{wordCount['word']}}</span>
+              <span class="front">{{ $t('components.titleBar.stats.words') }}</span><span class="text">{{wordCount['word']}}</span>
             </div>
             <div class="title-item">
-              <span class="front">Characters:</span><span class="text">{{wordCount['character']}}</span>
+              <span class="front">{{ $t('components.titleBar.stats.characters') }}</span><span class="text">{{wordCount['character']}}</span>
             </div>
             <div class="title-item">
-              <span class="front">Paragraphs:</span><span class="text">{{wordCount['paragraph']}}</span>
+              <span class="front">{{ $t('components.titleBar.stats.paragraphs') }}</span><span class="text">{{wordCount['paragraph']}}</span>
             </div>
           </div>
           <div
@@ -262,7 +262,7 @@ export default {
     background: transparent;
     height: var(--titleBarHeight);
     box-sizing: border-box;
-    color: var(--editorColor50);
+    color: var(--editorColor);
     position: fixed;
     left: 0;
     top: 0;

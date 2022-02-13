@@ -111,7 +111,7 @@ export const uploadImage = async (pathname, image, preferences) => {
   const { currentUploader, imageBed, githubToken: auth, cliScript } = preferences
   const { owner, repo, branch } = imageBed.github
   const isPath = typeof image === 'string'
-  const MAX_SIZE = 5 * 1024 * 1024
+  const MAX_SIZE = 20 * 1024 * 1024
   let re
   let rj
   const promise = new Promise((resolve, reject) => {

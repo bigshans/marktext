@@ -1,13 +1,13 @@
 <template>
   <div class="pref-image">
-    <h4>Image</h4>
+    <h4>{{ $t('preferences.image._title') }}</h4>
     <section class="image-ctrl">
-      <div>Default action after an image is inserted from local folder or clipboard
-        <el-tooltip class='item' effect='dark'
-          content='Clipboard handling is only fully supported on macOS and Windows.'
-          placement='top-start'>
-          <i class="el-icon-info"></i>
-        </el-tooltip>
+    <div>{{ $t('preferences.image.imageInsertAction._title') }}
+      <el-tooltip class='item' effect='dark'
+                  :content="$t('preferences.image.imageInsertAction._notice')"
+                  placement='top-start'>
+        <i class="el-icon-info"></i>
+      </el-tooltip>
       </div>
       <CurSelect :value="imageInsertAction" :options="imageActions"
         :onChange="value => onSelectChange('imageInsertAction', value)"></CurSelect>
@@ -33,7 +33,7 @@ export default {
     Uploader
   },
   data () {
-    this.imageActions = imageActions
+    this.imageActions = imageActions()
 
     return {}
   },

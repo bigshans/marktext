@@ -1,10 +1,9 @@
 <template>
   <div class="pref-keybindings">
-    <h4>Key Bindings</h4>
+    <h4>{{$t('preferences.keyBindings._title')}}</h4>
     <section class="keybindings">
       <div class="text">
-        Customize MarkText shortcuts and click on the save button below to apply all changes (requires a restart).
-        All available and default key binding can be found <a class="link" @click="openKeybindingWiki">online</a>.
+        {{$t('preferences.keyBindings.text')}} <a class="link" @click="openKeybindingWiki">{{$t('preferences.keyBindings.online')}}</a>.
       </div>
       <el-table
         :data="keybindingList"
@@ -31,13 +30,13 @@
     </section>
     <section class="footer">
       <separator></separator>
-      <el-button size="medium" @click="saveKeybindings">Save</el-button>
-      <el-button size="medium" @click="restoreDefaults">Restore default key bindings</el-button>
+      <el-button size="medium" @click="saveKeybindings">{{$t("preferences.keyBindings.save")}}</el-button>
+      <el-button size="medium" @click="restoreDefaults">{{$t("preferences.keyBindings.restore")}}</el-button>
     </section>
     <section v-if="showDebugTools" class="keyboard-debug">
       <separator></separator>
       <div><strong>Debug options:</strong></div>
-      <el-button size="medium" @click="dumpKeyboardInformation">Dump keyboard information</el-button>
+      <el-button size="medium" @click="dumpKeyboardInformation">{{$t("preferences.keyBindings.dump")}}</el-button>
     </section>
     <key-input-dialog
       :showWithId="selectedShortcutId"

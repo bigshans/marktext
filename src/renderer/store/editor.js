@@ -253,6 +253,9 @@ const mutations = {
     let tabIndex = 0
     tabIdList.forEach(id => {
       const index = state.tabs.findIndex(f => f.id === id)
+      if (!state.tabs[index]) {
+        return
+      }
       const { pathname } = state.tabs[index]
 
       // Notify main process to remove the file from the window and free resources.
@@ -527,6 +530,9 @@ const actions = {
 
   ASK_FOR_SAVE_ALL ({ commit, state }, closeTabs) {
     const { tabs } = state
+    if (!tabs) {
+      return
+    }
     const unsavedFiles = tabs
       .filter(file => !(file.isSaved && /[^\n]/.test(file.markdown)))
       .map(file => {

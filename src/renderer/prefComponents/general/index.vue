@@ -1,18 +1,18 @@
 <template>
   <div class="pref-general">
-    <h4>General</h4>
+    <h4>{{ $t('preferences.general._title') }}</h4>
     <compound>
       <template #head>
-        <h6 class="title">Auto Save:</h6>
+        <h6 class="title">{{$t('preferences.general.titleOfAutoSave')}}</h6>
       </template>
       <template #children>
         <bool
-          description="Automatically save document changes"
+          :description="$t('preferences.general.autoSave')"
           :bool="autoSave"
           :onChange="value => onSelectChange('autoSave', value)"
         ></bool>
         <range
-          description="Delay following document edit before automatically saving"
+          :description="$t('preferences.general.autoSaveDelay')"
           :value="autoSaveDelay"
           :min="1000"
           :max="10000"
@@ -25,29 +25,29 @@
 
     <compound>
       <template #head>
-        <h6 class="title">Window:</h6>
+        <h6 class="title">{{$t('preferences.general.titleOfWindow')}}</h6>
       </template>
       <template #children>
         <cur-select
           v-if="!isOsx"
-          description="Title bar style"
+          :description="$t('preferences.general.titleBarStyle._title')"
           notes="Requires restart."
           :value="titleBarStyle"
           :options="titleBarStyleOptions"
           :onChange="value => onSelectChange('titleBarStyle', value)"
         ></cur-select>
         <bool
-          description="Hide scrollbars"
+          :description="$t('preferences.general.hideScrollbar')"
           :bool="hideScrollbar"
           :onChange="value => onSelectChange('hideScrollbar', value)"
         ></bool>
         <bool
-          description="Open files in new window"
+          :description="$t('preferences.general.openFilesInNewWindow')"
           :bool="openFilesInNewWindow"
           :onChange="value => onSelectChange('openFilesInNewWindow', value)"
         ></bool>
         <bool
-          description="Open folders in new window"
+          :description="$t('preferences.general.openFolderInNewWindow')"
           :bool="openFolderInNewWindow"
           :onChange="value => onSelectChange('openFolderInNewWindow', value)"
         ></bool>
@@ -62,18 +62,18 @@
 
     <compound>
       <template #head>
-        <h6 class="title">Sidebar:</h6>
+        <h6 class="title">{{$t('preferences.general.titleOfSidebar')}}</h6>
       </template>
       <template #children>
         <bool
-          description="Wrap text in table of contents"
+          :description="$t('preferences.general.wordWrapInToc')"
           :bool="wordWrapInToc"
           :onChange="value => onSelectChange('wordWrapInToc', value)"
         ></bool>
 
         <!-- TODO: The description is very bad and the entry isn't used by the editor. -->
         <cur-select
-          description="Sort field for files in open folders"
+          :description="$t('preferences.general.fileSortBy._title')"
           :value="fileSortBy"
           :options="fileSortByOptions"
           :onChange="value => onSelectChange('fileSortBy', value)"
@@ -84,7 +84,7 @@
 
     <compound>
       <template #head>
-        <h6 class="title">Action on startup:</h6>
+        <h6 class="title">{{ $t('preferences.general.startUpAction._title') }}</h6>
       </template>
       <template #children>
         <section class="startup-action-ctrl">
@@ -93,9 +93,9 @@
               Hide "lastState" for now (#2064).
             <el-radio class="ag-underdevelop" label="lastState">Restore last editor session</el-radio>
             -->
-            <el-radio label="folder" style="margin-bottom: 10px;">Open the default directory<span>: {{defaultDirectoryToOpen}}</span></el-radio>
-            <el-button size="small" @click="selectDefaultDirectoryToOpen">Select Folder</el-button>
-            <el-radio label="blank">Open a blank page</el-radio>
+            <el-radio label="folder">{{ $t('preferences.general.startUpAction.folder') }}<span>: {{defaultDirectoryToOpen}}</span></el-radio>
+            <el-button size="small" @click="selectDefaultDirectoryToOpen">{{ $t('preferences.general.startUpAction.selectDefaultDirectoryToOpen') }}</el-button>
+            <el-radio label="blank">{{ $t('preferences.general.startUpAction.blank') }}</el-radio>
           </el-radio-group>
         </section>
       </template>
@@ -103,15 +103,14 @@
 
     <compound>
       <template #head>
-        <h6 class="title">Misc:</h6>
+        <h6 class="title">{{$t('preferences.titleOfMisc')}}</h6>
       </template>
       <template #children>
         <cur-select
-          description="User interface language"
+          :description="$t('preferences.general.languageForUI')"
           :value="language"
           :options="languageOptions"
           :onChange="value => onSelectChange('language', value)"
-          :disable="true"
         ></cur-select>
       </template>
     </compound>
@@ -130,9 +129,9 @@ import { isOsx } from '@/util'
 import {
   titleBarStyleOptions,
   zoomOptions,
-  fileSortByOptions,
-  languageOptions
+  fileSortByOptions
 } from './config'
+import { languageOptions } from '../../i18n'
 
 export default {
   components: {
@@ -143,9 +142,9 @@ export default {
     Separator
   },
   data () {
-    this.titleBarStyleOptions = titleBarStyleOptions
+    this.titleBarStyleOptions = titleBarStyleOptions()
+    this.fileSortByOptions = fileSortByOptions()
     this.zoomOptions = zoomOptions
-    this.fileSortByOptions = fileSortByOptions
     this.languageOptions = languageOptions
     this.isOsx = isOsx
     return {}
