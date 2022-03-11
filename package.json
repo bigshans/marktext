@@ -1,6 +1,6 @@
 {
   "name": "marktext",
-  "version": "0.17.0-rc.2",
+  "version": "0.17.1",
   "homepage": "https://marktext.app/",
   "description": "Next generation markdown editor",
   "license": "MIT",
@@ -30,7 +30,8 @@
     "release:muya": "yarn run build:muya && cd src/muya && yarn publish",
     "rebuild": "electron-rebuild -f",
     "gen-third-party": "node tools/generateThirdPartyLicense.js",
-    "validate-licenses": "node tools/validateLicenses.js"
+    "validate-licenses": "node tools/validateLicenses.js",
+    "deobfuscateStackTrace": "node tools/deobfuscateStackTrace.js"
   },
   "dependencies": {
     "@electron/remote": "^2.0.4",
@@ -56,7 +57,7 @@
     "execall": "^2.0.0",
     "flowchart.js": "^1.17.1",
     "fontmanager-redux": "^1.1.0",
-    "fs-extra": "^10.0.0",
+    "fs-extra": "^10.0.1",
     "fuzzaldrin": "^2.1.0",
     "github-markdown-css": "^3.0.1",
     "html-tags": "^3.1.0",
@@ -115,7 +116,7 @@
     "del": "^6.0.0",
     "devtron": "^1.4.0",
     "dotenv": "^10.0.0",
-    "electron": "^15.3.7",
+    "electron": "^15.4.0",
     "electron-builder": "^22.14.13",
     "electron-devtools-installer": "^3.2.0",
     "electron-rebuild": "^3.2.7",
@@ -158,6 +159,7 @@
     "postcss-preset-env": "^7.4.1",
     "raw-loader": "^4.0.2",
     "require-dir": "^1.2.0",
+    "stacktrace-parser": "^0.1.10",
     "style-loader": "^3.3.1",
     "svg-sprite-loader": "^6.0.11",
     "svgo": "^2.8.0",
