@@ -584,7 +584,7 @@ class App {
 
     ipcMain.handle('mt::keybinding-save-user-keybindings', async (event, userKeybindings) => {
       const { keybindings } = this._accessor
-      return await keybindings.setUserKeybindings(userKeybindings)
+      return keybindings.setUserKeybindings(userKeybindings)
     })
   }
 
