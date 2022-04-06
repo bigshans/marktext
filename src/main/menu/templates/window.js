@@ -1,5 +1,5 @@
 import { Menu } from 'electron'
-import { minimizeWindow, toggleAlwaysOnTop } from '../actions/window'
+import { minimizeWindow, toggleAlwaysOnTop, toggleFullScreen } from '../actions/window'
 import { zoomIn, zoomOut } from '../../windows/utils'
 import { isOsx } from '../../config'
 import i18n from '../../i18n'
@@ -41,9 +41,9 @@ export default function (keybindings) {
     }, {
       label: i18n.t('menu.window.fullScreen'),
       accelerator: keybindings.getAccelerator('window.toggle-full-screen'),
-      click (item, focusedWindow) {
-        if (focusedWindow) {
-          focusedWindow.setFullScreen(!focusedWindow.isFullScreen())
+      click (item, browserWindow) {
+        if (browserWindow) {
+          toggleFullScreen(browserWindow)
         }
       }
     }]

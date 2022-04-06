@@ -1,4 +1,3 @@
-import * as contextMenu from './actions'
 import i18n from '../../../locales'
 
 // NOTE: This are mutable fields that may change at runtime.
@@ -31,8 +30,8 @@ export const COPY_AS_MARKDOWN = () => {
   return {
     label: i18n.t('menu.edit.copyAsMarkdown'),
     id: 'copyAsMarkdownMenuItem',
-    click (menuItem, browserWindow) {
-      contextMenu.copyAsMarkdown()
+    click (menuItem, targetWindow) {
+      targetWindow.webContents.send('mt::cm-copy-as-markdown')
     }
   }
 }
@@ -41,8 +40,8 @@ export const COPY_AS_HTML = () => {
   return {
     label: i18n.t('menu.edit.copyAsHtml'),
     id: 'copyAsHtmlMenuItem',
-    click (menuItem, browserWindow) {
-      contextMenu.copyAsHtml()
+    click (menuItem, targetWindow) {
+      targetWindow.webContents.send('mt::cm-copy-as-html')
     }
   }
 }
@@ -51,8 +50,8 @@ export const PASTE_AS_PLAIN_TEXT = () => {
   return {
     label: i18n.t('menu.edit.pasteAsPlainText'),
     id: 'pasteAsPlainTextMenuItem',
-    click (menuItem, browserWindow) {
-      contextMenu.pasteAsPlainText()
+    click (menuItem, targetWindow) {
+      targetWindow.webContents.send('mt::cm-paste-as-plain-text')
     }
   }
 }
@@ -61,8 +60,8 @@ export const INSERT_BEFORE = () => {
   return {
     label: i18n.t('menu.edit.insertParagraphBefore'),
     id: 'insertParagraphBeforeMenuItem',
-    click (menuItem, browserWindow) {
-      contextMenu.insertParagraph('before')
+    click (menuItem, targetWindow) {
+      targetWindow.webContents.send('mt::cm-insert-paragraph', 'before')
     }
   }
 }
@@ -71,8 +70,8 @@ export const INSERT_AFTER = () => {
   return {
     label: i18n.t('menu.edit.insertParagraphAfter'),
     id: 'insertParagraphAfterMenuItem',
-    click (menuItem, browserWindow) {
-      contextMenu.insertParagraph('after')
+    click (menuItem, targetWindow) {
+      targetWindow.webContents.send('mt::cm-insert-paragraph', 'after')
     }
   }
 }

@@ -1,7 +1,6 @@
 import { app } from 'electron'
 import * as actions from '../actions/file'
 import { userSetting } from '../actions/marktext'
-import { showTabBar } from '../actions/view'
 import { isOsx } from '../../config'
 import i18n from '../../i18n'
 
@@ -14,11 +13,10 @@ export default function (keybindings, userPreference, recentlyUsedFiles) {
       accelerator: keybindings.getAccelerator('file.new-tab'),
       click (menuItem, browserWindow) {
         actions.newBlankTab(browserWindow)
-        showTabBar(browserWindow)
       }
     }, {
       label: i18n.t('menu.file.newWindow'),
-      accelerator: keybindings.getAccelerator('file.new-file'),
+      accelerator: keybindings.getAccelerator('file.new-window'),
       click (menuItem, browserWindow) {
         actions.newEditorWindow()
       }
@@ -140,7 +138,7 @@ export default function (keybindings, userPreference, recentlyUsedFiles) {
     label: i18n.t('menu.file.print'),
     accelerator: keybindings.getAccelerator('file.print'),
     click (menuItem, browserWindow) {
-      actions.print(browserWindow)
+      actions.printDocument(browserWindow)
     }
   }, {
     type: 'separator',
