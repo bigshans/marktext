@@ -9,7 +9,9 @@ const write = s => process.stdout.write(s)
 const writeLine = s => write(s + '\n')
 
 const cli = () => {
-  let argv = process.argv.slice(1)
+  const executorPath = process.argv[0]
+  const executor = executorPath.split('/').slice(-1)[0]
+  let argv = executor.startsWith('electron') ? process.argv.slice(2) : process.argv.slice(1)
   if (process.env.NODE_ENV === 'development') {
     // Don't pass electron development arguments to MarkText and change user data path.
     argv = ['--user-data-dir', path.join(getPath('appData'), 'marktext-dev')]
